@@ -5,7 +5,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, useLocation, useParams, useNavigate } from 'react-router-dom';
-import { ShoppingBag, Search, User, Menu, X, ArrowRight, ArrowLeft, Upload, PenTool, Package, CheckCircle, UploadCloud, ImageIcon, Filter, ChevronDown, PlusCircle } from 'lucide-react';
+import { ShoppingBag, Search, User, Menu, X, ArrowRight, ArrowLeft, Upload, PenTool, Package, CheckCircle, UploadCloud, ImageIcon, Filter, ChevronDown, PlusCircle, MessageCircle, Send } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 // --- DATA ---
@@ -609,6 +609,93 @@ function Footer() {
   );
 }
 
+function HelpWidget() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [message, setMessage] = useState('');
+  const [isSent, setIsSent] = useState(false);
+
+  const handleSend = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (message.trim()) {
+      setIsSent(true);
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsSent(false);
+        setMessage('');
+      }, 4000);
+    }
+  };
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50">
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="absolute bottom-16 right-0 bg-white rounded-2xl shadow-2xl w-80 overflow-hidden border border-gray-100 flex flex-col mb-4"
+          >
+            <div className="bg-[#1a56db] p-4 text-white flex justify-between items-center">
+              <div>
+                <h3 className="font-bold">Chat with us</h3>
+                <p className="text-blue-100 text-xs mt-0.5">Our team will respond in a few minutes</p>
+              </div>
+              <button onClick={() => setIsOpen(false)} className="text-white hover:text-gray-200 transition-colors">
+                <X size={20} />
+              </button>
+            </div>
+            
+            <div className="p-4 bg-gray-50 h-64 overflow-y-auto flex flex-col gap-3">
+              <div className="bg-white p-3 rounded-2xl rounded-tl-sm shadow-sm border border-gray-100 max-w-[85%] self-start text-sm text-gray-800">
+                👋 Hi there! How can we help you with your custom apparel order today?
+              </div>
+              
+              {isSent && (
+                <>
+                  <div className="bg-[#1a56db] p-3 rounded-2xl rounded-tr-sm shadow-sm max-w-[85%] self-end text-sm text-white">
+                    {message}
+                  </div>
+                  <div className="text-xs text-gray-500 text-center mt-2 bg-gray-100 py-1 px-3 rounded-full self-center">
+                    Message sent. Our team will be with you shortly!
+                  </div>
+                </>
+              )}
+            </div>
+            
+            {!isSent && (
+              <form onSubmit={handleSend} className="p-3 bg-white border-t flex gap-2 items-center">
+                <input
+                  type="text"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  placeholder="Type your message..."
+                  className="flex-1 border border-gray-200 rounded-full px-4 py-2 text-sm focus:outline-none focus:border-[#1a56db] focus:ring-1 focus:ring-[#1a56db]"
+                />
+                <button
+                  type="submit"
+                  disabled={!message.trim()}
+                  className="bg-[#1a56db] text-white p-2 rounded-full disabled:opacity-50 hover:bg-blue-700 transition-colors flex items-center justify-center"
+                >
+                  <Send size={16} />
+                </button>
+              </form>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="bg-[#1a56db] text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-transform hover:scale-105 flex items-center justify-center"
+      >
+        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
+      </button>
+    </div>
+  );
+}
+
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-white text-gray-900 flex flex-col">
@@ -617,6 +704,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       <Footer />
+      <HelpWidget />
     </div>
   );
 }
