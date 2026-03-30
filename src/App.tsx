@@ -1204,8 +1204,8 @@ function CustomOrder() {
                   return acc;
                 }, []).map((item, idx) => (
                   <div key={idx} className="flex items-center gap-3 text-sm">
-                    <div className="w-10 h-10 rounded border border-gray-200 flex-shrink-0 overflow-hidden" style={{ backgroundColor: item.colorValue }}>
-                      <img src={item.image} alt={item.name} className="w-full h-full object-contain mix-blend-multiply" />
+                    <div className="w-10 h-10 rounded border border-gray-200 flex-shrink-0 overflow-hidden bg-gray-50">
+                      <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                     </div>
                     <div className="flex-1">
                       <p className="font-bold text-gray-800 leading-tight">{item.name}</p>
@@ -1347,8 +1347,8 @@ function CustomOrder() {
               <div key={item.id} className={`max-w-2xl mx-auto border-2 rounded-xl p-8 bg-white shadow-sm transition-colors ${hasAnyQuantity ? 'border-[#1a56db]' : 'border-gray-200 hover:border-gray-300'}`}>
                 <div className="flex flex-col items-center mb-6">
                   <div className="relative mb-4">
-                    <div className="w-24 h-24 rounded-xl border border-gray-200 overflow-hidden transition-colors duration-300" style={{ backgroundColor: currentColorValue }}>
-                      <img src={item.image} alt={item.name} className="w-full h-full object-contain mix-blend-multiply" />
+                    <div className="w-24 h-24 rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
+                      <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                     </div>
                     <div className="absolute -bottom-2 -left-4 bg-white rounded-full">
                       <PlusCircle size={24} className="text-black" />
@@ -1436,8 +1436,8 @@ function CustomOrder() {
                 return acc;
               }, []).map((item, idx) => (
                 <div key={idx} className="flex items-center gap-3 text-sm bg-white p-3 rounded-lg border border-gray-100 shadow-sm">
-                  <div className="w-12 h-12 rounded border border-gray-200 flex-shrink-0 overflow-hidden" style={{ backgroundColor: item.colorValue }}>
-                    <img src={item.image} alt={item.name} className="w-full h-full object-contain mix-blend-multiply" />
+                  <div className="w-12 h-12 rounded border border-gray-200 flex-shrink-0 overflow-hidden bg-gray-50">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                   </div>
                   <div className="flex-1">
                     <p className="font-bold text-gray-800 leading-tight">{item.name}</p>
