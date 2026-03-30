@@ -187,16 +187,16 @@ function MockupGenerator() {
   };
 
   return (
-    <div className="pt-32 pb-20 bg-white min-h-screen">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 bg-white min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl font-display uppercase tracking-wide mb-4">Interactive Mockup Studio</h1>
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-display uppercase tracking-wide mb-4">Interactive Mockup Studio</h1>
           <p className="text-gray-600 max-w-2xl mx-auto">Upload your logo and see it instantly embroidered on our premium blanks.</p>
         </div>
         
         <div className="flex flex-col lg:flex-row gap-12 items-start">
           {/* Controls */}
-          <div className="w-full lg:w-1/3 space-y-8">
+          <div className="w-full lg:w-1/3 space-y-6 sm:space-y-8">
             <div>
               <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-gray-900">1. Select Apparel</h3>
               <div className="grid grid-cols-2 gap-2">
@@ -467,12 +467,12 @@ function Navbar() {
   }, [location.pathname]);
 
   const navClasses = isHome 
-    ? (isScrolled ? 'bg-white shadow-md py-4 text-black' : 'bg-transparent py-6 text-white')
-    : 'bg-white shadow-md py-4 text-black';
+    ? (isScrolled ? 'bg-white shadow-md py-3 sm:py-4 text-black' : 'bg-transparent py-4 sm:py-6 text-white')
+    : 'bg-white shadow-md py-3 sm:py-4 text-black';
 
   return (
     <>
-      <div className="bg-black text-white text-xs font-medium py-2 text-center tracking-wider uppercase fixed top-0 w-full z-50">
+      <div className="bg-black text-white text-[10px] sm:text-xs font-medium py-2 px-4 text-center tracking-wider uppercase fixed top-0 w-full z-50">
         Free logo setup on all team orders over 24 pieces
       </div>
       <nav 
@@ -482,7 +482,7 @@ function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2"
+            className="md:hidden p-2 -ml-2"
             onClick={() => setMobileMenuOpen(true)}
           >
             <Menu className={!isHome || isScrolled ? 'text-black' : 'text-white'} size={24} />
@@ -490,8 +490,8 @@ function Navbar() {
 
           {/* Logo */}
           <div className="flex-1 md:flex-none text-center md:text-left flex items-center gap-2 justify-center md:justify-start">
-            <PenTool className={!isHome || isScrolled ? 'text-black' : 'text-white'} size={28} />
-            <Link to="/" className={`font-display text-3xl tracking-widest uppercase ${!isHome || isScrolled ? 'text-black' : 'text-white'}`}>
+            <PenTool className={!isHome || isScrolled ? 'text-black' : 'text-white'} size={24} />
+            <Link to="/" className={`font-display text-xl sm:text-3xl tracking-widest uppercase ${!isHome || isScrolled ? 'text-black' : 'text-white'}`}>
               AURA CUSTOMS
             </Link>
           </div>
@@ -752,7 +752,7 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-display text-white uppercase tracking-tight leading-none mb-6"
+            className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-display text-white uppercase tracking-tight leading-none mb-6"
           >
             Premium Custom <br /> Embroidery
           </motion.h1>
@@ -760,7 +760,7 @@ function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-medium"
+            className="text-base sm:text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-medium"
           >
             Elevate your team's look. High-performance athletic wear and durable workwear, custom stitched with your logo.
           </motion.p>
@@ -770,10 +770,10 @@ function Home() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4"
           >
-            <button onClick={() => navigate('/shop/athletic')} className="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold uppercase tracking-wide hover:bg-gray-200 transition-colors">
+            <button onClick={() => navigate('/shop/athletic')} className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-bold uppercase tracking-wide hover:bg-gray-200 transition-colors">
               Shop Athletic Wear
             </button>
-            <button onClick={() => navigate('/shop/workwear')} className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors">
+            <button onClick={() => navigate('/shop/workwear')} className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors">
               Shop Workwear
             </button>
           </motion.div>
@@ -781,9 +781,9 @@ function Home() {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-display uppercase tracking-wide mb-4">Choose Your Gear</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display uppercase tracking-wide mb-4">Choose Your Gear</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">We source only the highest quality blanks designed to withstand the toughest workouts and the hardest jobs.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -796,7 +796,7 @@ function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-colors duration-300"></div>
             <div className="absolute bottom-8 left-8 right-8">
-              <h2 className="text-4xl font-display text-white uppercase tracking-wide mb-2">Athletic Wear</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display text-white uppercase tracking-wide mb-2">Athletic Wear</h2>
               <p className="text-gray-300 mb-4 font-medium">Moisture-wicking polos, performance hoodies, and team warm-ups.</p>
               <div className="flex items-center text-white font-semibold uppercase tracking-wider group-hover:gap-2 transition-all">
                 <span>Customize Now</span>
@@ -813,7 +813,7 @@ function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-colors duration-300"></div>
             <div className="absolute bottom-8 left-8 right-8">
-              <h2 className="text-4xl font-display text-white uppercase tracking-wide mb-2">Workwear</h2>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display text-white uppercase tracking-wide mb-2">Workwear</h2>
               <p className="text-gray-300 mb-4 font-medium">Heavy-duty jackets, high-vis gear, and durable canvas shirts.</p>
               <div className="flex items-center text-white font-semibold uppercase tracking-wider group-hover:gap-2 transition-all">
                 <span>Customize Now</span>
@@ -825,10 +825,10 @@ function Home() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-20 bg-gray-50 border-y border-gray-200">
+      <section id="how-it-works" className="py-16 md:py-20 bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-display uppercase tracking-wide mb-4">The Custom Process</h2>
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display uppercase tracking-wide mb-4">The Custom Process</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">From selecting your gear to wearing it on site, we make custom embroidery seamless and professional.</p>
           </div>
           
@@ -847,10 +847,10 @@ function Home() {
       </section>
 
       {/* Popular Blanks */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+      <section className="py-16 md:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
         <div className="flex justify-between items-end mb-10">
           <div>
-            <h2 className="text-4xl font-display uppercase tracking-wide mb-2">Popular Blanks</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display uppercase tracking-wide mb-2">Popular Blanks</h2>
             <p className="text-gray-600">Ready for your logo.</p>
           </div>
           <Link to="/shop" className="hidden sm:flex items-center font-semibold uppercase tracking-wider text-sm hover:text-gray-600 transition-colors">
@@ -885,17 +885,17 @@ function Home() {
       </section>
 
       {/* Bulk Orders CTA */}
-      <section className="py-24 bg-black text-white">
+      <section className="py-16 md:py-24 bg-black text-white">
         <div className="max-w-4xl mx-auto text-center px-4">
-          <h2 className="text-4xl md:text-6xl font-display uppercase tracking-tight mb-6">Outfit The Whole Team</h2>
-          <p className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-6xl font-display uppercase tracking-tight mb-6">Outfit The Whole Team</h2>
+          <p className="text-base sm:text-lg text-gray-400 mb-10 max-w-2xl mx-auto">
             Need gear for a large crew, corporate event, or sports team? We offer tiered volume discounts and dedicated account managers for bulk orders.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button onClick={() => navigate('/bulk-orders')} className="px-8 py-4 bg-white text-black font-bold uppercase tracking-wide hover:bg-gray-200 transition-colors">
+            <button onClick={() => navigate('/bulk-orders')} className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-black font-bold uppercase tracking-wide hover:bg-gray-200 transition-colors">
               Request A Quote
             </button>
-            <button onClick={() => navigate('/bulk-orders')} className="px-8 py-4 bg-transparent border-2 border-white text-white font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors">
+            <button onClick={() => navigate('/bulk-orders')} className="w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-transparent border-2 border-white text-white font-bold uppercase tracking-wide hover:bg-white hover:text-black transition-colors">
               View Bulk Pricing
             </button>
           </div>
@@ -911,23 +911,23 @@ function Shop() {
   const filteredProducts = category ? PRODUCTS.filter(p => p.category.toLowerCase() === category) : PRODUCTS;
 
   return (
-    <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 sm:mb-12">
         <div>
-          <h1 className="text-5xl font-display uppercase tracking-wide mb-4">{title}</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-display uppercase tracking-wide mb-4">{title}</h1>
           <p className="text-gray-600 max-w-2xl">Premium {title.toLowerCase()} blanks ready for your custom embroidery.</p>
         </div>
-        <div className="mt-6 md:mt-0 flex items-center gap-4">
-          <button className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider border border-gray-300 px-4 py-2 hover:border-black transition-colors">
+        <div className="mt-6 md:mt-0 flex items-center gap-4 w-full md:w-auto">
+          <button className="flex-1 md:flex-none justify-center items-center flex gap-2 text-sm font-semibold uppercase tracking-wider border border-gray-300 px-4 py-2 hover:border-black transition-colors">
             <Filter size={16} /> Filter
           </button>
-          <button className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider border border-gray-300 px-4 py-2 hover:border-black transition-colors">
+          <button className="flex-1 md:flex-none justify-center items-center flex gap-2 text-sm font-semibold uppercase tracking-wider border border-gray-300 px-4 py-2 hover:border-black transition-colors">
             Sort <ChevronDown size={16} />
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 sm:gap-x-8 sm:gap-y-12">
         {filteredProducts.map((product) => (
           <Link to={`/product/${product.id}`} key={product.id} className="group cursor-pointer">
             <div className="relative overflow-hidden bg-gray-100 aspect-[3/4] mb-4 border border-gray-200">
@@ -1134,14 +1134,14 @@ function CustomOrder() {
 
   if (step === 2) {
     return (
-      <div className="pt-32 pb-20 bg-white min-h-screen font-sans">
+      <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 bg-white min-h-screen font-sans">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <button onClick={handleBack} className="flex items-center text-gray-600 hover:text-black mb-8 transition-colors">
             <ArrowLeft className="w-5 h-5 mr-2" /> Back to Selection
           </button>
           
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-display uppercase tracking-wide mb-4">Customize Your Order</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-display uppercase tracking-wide mb-4">Customize Your Order</h1>
             <p className="text-gray-600">Upload your logo and add any specific design instructions.</p>
           </div>
 
@@ -1261,10 +1261,10 @@ function CustomOrder() {
   }
 
   return (
-    <div className="pt-32 pb-20 bg-white min-h-screen font-sans">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 bg-white min-h-screen font-sans">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-display uppercase tracking-wide mb-4">Custom Order</h1>
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-display uppercase tracking-wide mb-4">Custom Order</h1>
           <p className="text-gray-600">Step 1: Build your custom apparel package.</p>
         </div>
 
@@ -1315,12 +1315,12 @@ function CustomOrder() {
         </div>
 
         {/* Category Switcher */}
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-12">
           {CATEGORIES.map(cat => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id as any)}
-              className={`px-6 py-3 rounded-full font-bold uppercase tracking-wider transition-colors border-2 ${
+              className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full font-bold text-sm sm:text-base uppercase tracking-wider transition-colors border-2 ${
                 activeCategory === cat.id 
                   ? 'bg-[#1a56db] border-[#1a56db] text-white' 
                   : 'bg-white border-gray-200 text-gray-600 hover:border-gray-300'
@@ -1344,7 +1344,7 @@ function CustomOrder() {
             const currentColorValue = BASIC_COLORS.find(c => c.name === currentColor)?.value || '#222222';
 
             return (
-              <div key={item.id} className={`max-w-2xl mx-auto border-2 rounded-xl p-8 bg-white shadow-sm transition-colors ${hasAnyQuantity ? 'border-[#1a56db]' : 'border-gray-200 hover:border-gray-300'}`}>
+              <div key={item.id} className={`max-w-2xl mx-auto border-2 rounded-xl p-4 sm:p-8 bg-white shadow-sm transition-colors ${hasAnyQuantity ? 'border-[#1a56db]' : 'border-gray-200 hover:border-gray-300'}`}>
                 <div className="flex flex-col items-center mb-6">
                   <div className="relative mb-4">
                     <div className="w-24 h-24 rounded-xl border border-gray-200 overflow-hidden bg-gray-50">
@@ -1379,18 +1379,18 @@ function CustomOrder() {
                   <p className="text-sm text-gray-500 font-medium uppercase">{currentColor}</p>
                 </div>
 
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-wrap justify-center gap-2 sm:gap-4">
                   {item.sizes.map((size: string) => {
                     const qty = sizeQuantities[size] || 0;
                     const isActive = qty > 0;
 
                     return (
-                      <div key={size} className={`flex flex-col items-center p-4 rounded-xl border ${isActive ? 'bg-[#1a56db] border-[#1a56db]' : 'bg-white border-gray-200'}`}>
-                        <span className={`mb-3 font-medium ${isActive ? 'text-white' : 'text-gray-800'}`}>{size}</span>
+                      <div key={size} className={`flex flex-col items-center p-2 sm:p-4 rounded-xl border ${isActive ? 'bg-[#1a56db] border-[#1a56db]' : 'bg-white border-gray-200'}`}>
+                        <span className={`mb-2 sm:mb-3 font-medium text-xs sm:text-base ${isActive ? 'text-white' : 'text-gray-800'}`}>{size}</span>
                         <div className="flex items-center gap-1">
                           <button
                             onClick={() => updateQuantity(item.id, currentColor, size, -1)}
-                            className={`w-10 h-10 flex items-center justify-center rounded font-bold text-xl ${isActive ? 'bg-[#3cc13b] text-white hover:bg-green-600' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
+                            className={`w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded font-bold text-sm sm:text-xl ${isActive ? 'bg-[#3cc13b] text-white hover:bg-green-600' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
                           >
                             -
                           </button>
@@ -1398,11 +1398,11 @@ function CustomOrder() {
                             type="text"
                             value={qty === 0 ? 'X' : qty}
                             onChange={(e) => handleQuantityChange(item.id, currentColor, size, e.target.value)}
-                            className={`w-14 h-10 text-center font-bold text-lg rounded focus:outline-none ${isActive ? 'bg-white text-black' : 'bg-white text-gray-500 border border-gray-200'}`}
+                            className={`w-8 h-6 sm:w-14 sm:h-10 text-center font-bold text-sm sm:text-lg rounded focus:outline-none ${isActive ? 'bg-white text-black' : 'bg-white text-gray-500 border border-gray-200'}`}
                           />
                           <button
                             onClick={() => updateQuantity(item.id, currentColor, size, 1)}
-                            className={`w-10 h-10 flex items-center justify-center rounded font-bold text-xl ${isActive ? 'bg-[#3cc13b] text-white hover:bg-green-600' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
+                            className={`w-6 h-6 sm:w-10 sm:h-10 flex items-center justify-center rounded font-bold text-sm sm:text-xl ${isActive ? 'bg-[#3cc13b] text-white hover:bg-green-600' : 'bg-gray-200 text-white hover:bg-gray-300'}`}
                           >
                             +
                           </button>
@@ -1483,8 +1483,8 @@ function ProductDetail() {
   const product = PRODUCTS.find(p => p.id === Number(id)) || PRODUCTS[0];
 
   return (
-    <div className="pt-32 pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row gap-12">
+    <div className="pt-24 sm:pt-32 pb-16 sm:pb-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col md:flex-row gap-8 md:gap-12">
         <div className="w-full md:w-1/2">
           <div className="bg-gray-100 aspect-[3/4] relative border border-gray-200">
             <img src={product.image} alt={product.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
@@ -1492,7 +1492,7 @@ function ProductDetail() {
         </div>
         <div className="w-full md:w-1/2 flex flex-col justify-center">
           <p className="text-sm text-gray-500 uppercase tracking-wider mb-2">{product.category}</p>
-          <h1 className="text-4xl font-display uppercase tracking-wide mb-4">{product.name}</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-display uppercase tracking-wide mb-4">{product.name}</h1>
           <p className="text-2xl font-medium mb-8">{product.price}</p>
           
           <div className="space-y-6 mb-8">
